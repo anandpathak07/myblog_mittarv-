@@ -27,6 +27,7 @@ const MyPosts = () => {
     <div className="home-container">
       <h2>My Blog Posts</h2>
       <p>
+        {/* Author: <strong>{user?.user?.name}</strong> ({user?.user?.email}) */}
         Author: <strong>{user?.name}</strong> ({user?.email})
       </p>
 

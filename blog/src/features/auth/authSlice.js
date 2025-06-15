@@ -18,8 +18,11 @@ export const loginUser = createAsyncThunk(
             // If login is successful, you might want to store the token in local storage
             // or handle it as needed in your application state.
             if (response.data.token) {
-                localStorage.setItem('user', JSON.stringify(response.data));
+                // localStorage.setItem('user', JSON.stringify(response.data));
+                // localStorage.setItem('token', JSON.stringify(response.data.token));
                 localStorage.setItem('token', JSON.stringify(response.data.token));
+localStorage.setItem('user', JSON.stringify(response.data.user)); // ADD THIS
+
                 
                 return response.data; // Return the user data and token from the response
             } else {
@@ -45,7 +48,10 @@ export const registerUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const res = await axios.post("/api/auth/register", userData);
-      localStorage.setItem("token", res.data.token);
+      // localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+localStorage.setItem("user", JSON.stringify(res.data.user)); // ADD THIS
+
       axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
       return res.data;
     } catch (err) {
@@ -57,14 +63,21 @@ export const registerUser = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    token: localStorage.getItem("token") || null,
-    user: null,
+    // token: localStorage.getItem("token") || null,
+    token: JSON.parse(localStorage.getItem("token")) || null,
+    user: JSON.parse(localStorage.getItem("user")) || null,
+
+    // user: null,
     loading: false,
     error: null,
+    getUser:false
   },
   reducers: {
     logout: (state) => {
+      // localStorage.removeItem("token");
       localStorage.removeItem("token");
+localStorage.removeItem("user");
+
       delete axios.defaults.headers.common["Authorization"];
       state.token = null;
       state.user = null;
@@ -80,6 +93,8 @@ const authSlice = createSlice({
         state.loading = false;
         state.token = action.payload.token;
         state.user = action.payload.user;
+        state.getUser = true;
+
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

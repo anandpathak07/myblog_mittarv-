@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   // Initialize isLoggedIn state based on whether a token exists in localStorage
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const navigate = useNavigate(); // Hook for programmatic navigation
-  const user = useSelector((state) => state.auth.user);
+  const {user,getUser} = useSelector((state) => state.auth);
   useEffect(() => {
     // Check localStorage for a token on component mount
     const token = localStorage.getItem("token");
@@ -34,6 +34,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token"); // Remove the token from localStorage
+    localStorage.removeItem("user"); // Remove the token from localStorage
     setIsLoggedIn(false); // Update local state
     setMenuOpen(false); // Close the mobile menu on logout
     navigate("/login"); // Redirect to the login page or home page
@@ -51,8 +52,8 @@ const Navbar = () => {
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
         <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
         <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-        {/* <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li> */}
- <li><Link to="/my-posts" onClick={() => setMenuOpen(false)}>MyPost</Link></li>
+        <li><Link to="/my-posts" onClick={() => setMenuOpen(false)}>MyPost</Link></li>
+
         {user   ? (
           <>
             <li><Link to="/my-account" onClick={() => setMenuOpen(false)}>My Account</Link></li>
