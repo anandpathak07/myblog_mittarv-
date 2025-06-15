@@ -52,7 +52,7 @@ const Navbar = () => {
         <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
         <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
         {/* <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li> */}
-
+ <li><Link to="/my-posts" onClick={() => setMenuOpen(false)}>MyPost</Link></li>
         {user   ? (
           <>
             <li><Link to="/my-account" onClick={() => setMenuOpen(false)}>My Account</Link></li>
