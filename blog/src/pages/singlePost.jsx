@@ -43,7 +43,7 @@ const SinglePost = () => {
 
   return (
     <div className="single-post-page">
-            <IconButton onClick={() => navigate(-1)} className="back-button" style={{ marginBottom: '1rem' }}>
+            <IconButton onClick={() => navigate(-1)} className="back-button" style={{ marginBottom: '1rem', }}>
         ← Back
       </IconButton>
       <Typography variant="h3" className="post-title">{post.title}</Typography>
