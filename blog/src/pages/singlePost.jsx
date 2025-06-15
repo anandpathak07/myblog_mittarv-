@@ -22,7 +22,8 @@ import {
   LinkedIn,
   Google,
 } from '@mui/icons-material';
-import '../styles/SinglePost.scss';
+import  '../styles/singlePost.scss';
+
 
 const SinglePost = () => {
   const { id } = useParams();
