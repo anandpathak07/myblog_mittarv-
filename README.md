@@ -19,8 +19,23 @@ Welcome to *MyBlog, a feature-rich and user-friendly blogging platform built wit
 
 ## 🧠 AI Involvement
 
-We used AI tools like *ChatGPT* throughout the development process to improve efficiency and quality:
+We used AI in different stages of building the *MyBlog* website to make development faster, easier, and better:
 
+### 🔧 Planning the Project
+- AI tools like ChatGPT helped us plan the website structure, select the tech stack, and define key features.
+
+### 💻 Writing and Fixing Code
+- AI assisted in generating boilerplate code for features like login, sign-up, and CRUD operations for posts.
+- It helped identify and fix bugs by analyzing errors and suggesting better practices.
+
+### ✍ Improving Blog Content
+- AI formatted content into readable sections, suggested tags, and made the post text more engaging.
+
+### 🎨 Design & UI Decisions
+- Helped choose cleaner labels for buttons and messages.
+- Provided layout suggestions to improve user experience.
+
+---
 ### 🔧 Project Planning
 - Helped define the folder structure and feature set.
 - Assisted in choosing libraries and organizing routes.
