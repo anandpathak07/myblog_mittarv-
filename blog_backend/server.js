@@ -75,7 +75,7 @@ const app = express();
 connectDB();
 
 app.use(cors({
-    origin: ['http://localhost:5173'], // your frontend
+    origin: ['http://localhost:5173','https://myblog-mittarv-frontend.onrender.com'], // your frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'] // allow JWT header
   }));
